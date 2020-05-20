@@ -1,0 +1,16 @@
+<resources>
+
+    <dimen name="action_bar_height">44dp</dimen>
+
+    <!--sp size-->
+    <dimen name="sp_size_15">15sp</dimen>
+    <dimen name="sp_size_17">17sp</dimen>
+
+    <!--dp size-->
+    <dimen name="dp_size_5">5dp</dimen>
+    <dimen name="dp_size_8">8dp</dimen>
+    <dimen name="dp_size_10">10dp</dimen>
+    <dimen name="dp_size_12">12dp</dimen>
+    <dimen name="dp_size_20">20dp</dimen>
+    <dimen name="dp_size_40">40dp</dimen>
+</resources>

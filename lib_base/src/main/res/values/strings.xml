@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="str_no_data">暂无数据</string>
+    <string name="str_error_data">网络请求失败</string>
+    <string name="str_pull_up_loading">上拉加载</string>
+    <string name="str_pull_down_refresh">下拉刷新</string>
+    <string name="str_pull_loose_refreshing">松开刷新</string>
+    <string name="str_pull_loose_load_more">松开加载更多</string>
+    <string name="str_loading">加载中…</string>
+    <string name="str_cancel">取消</string>
+    <string name="str_confirm">确定</string>
+    <string name="str_prompt">提示</string>
+    <string name="str_back">返回</string>
+    <string name="str_digits">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!(),.-;:?_</string>
+    <string name="loading">正在加载中</string>
+
+</resources>

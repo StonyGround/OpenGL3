@@ -1,0 +1,155 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.versions.compileSdkVersion
+    buildToolsVersion rootProject.ext.versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.versions.minSdkVersion
+        targetSdkVersion rootProject.ext.versions.targetSdkVersion
+        versionCode rootProject.ext.versions.versionCode
+        versionName rootProject.ext.versions.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //MultiDex分包方法
+        multiDexEnabled true
+
+
+        ndk {
+            abiFilters "armeabi"
+        }
+
+        //Arouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
+    }
+
+    buildTypes {
+        //开发
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "API_BASE_URL", "\"http://acnet.sdiyun.net/\"")//测试
+        }
+        //生产
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "API_BASE_URL", "\"http://acnet.sdiyun.net/\"")
+        }
+    }
+    //防止编译的时候oom、GC
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+}
+
+dependencies {
+    // 在项目中的libs中的所有的.jar结尾的文件，都是依赖
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    //把implementation 用api代替,它是对外部公开的, 所有其他的module就不需要添加该依赖
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.core:core-ktx:1.2.0'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+
+//    api rootProject.ext.dependencies["appcompat_v7"]
+//    api rootProject.ext.dependencies["constraint_layout"]
+//    api rootProject.ext.dependencies["cardview-v7"]
+//    api rootProject.ext.dependencies["recyclerview-v7"]
+//    api rootProject.ext.dependencies["support-v4"]
+//    api rootProject.ext.dependencies["design"]
+//    api rootProject.ext.dependencies["support_annotations"]
+//    api rootProject.ext.dependencies["junit"]
+//    //MultiDex分包方法
+    api rootProject.ext.dependencies["multidex"]
+//    //Arouter路由
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    api rootProject.ext.dependencies["arouter_api"]
+    api rootProject.ext.dependencies["arouter_annotation"]
+//    //eventbus 发布/订阅事件总线
+    api rootProject.ext.dependencies["eventbus"]
+//    //fastJson
+//    api rootProject.ext.dependencies["fastjson"]
+//    //沉浸栏
+    api rootProject.ext.dependencies["immersionbar"]
+//    //banner
+//    api rootProject.ext.dependencies["banner"]
+//    //图片加载
+    api rootProject.ext.dependencies["glide"]
+//    //时间 日期  地址 条件选中器
+//    api rootProject.ext.dependencies["pickerView"]
+    //万能Adapter
+//    api rootProject.ext.dependencies["superAdapter"]
+//    api rootProject.ext.dependencies["baseQuickAdapter"]
+    //网络访问框架
+    api rootProject.ext.dependencies["retrofit2"]
+    api rootProject.ext.dependencies["retrofit2_Converter"]//转换器，请求结果转换成Model
+    api rootProject.ext.dependencies["retrofit2_Adapter"]//配合Rxjava 使用
+    api rootProject.ext.dependencies["okhttp3"]
+    api rootProject.ext.dependencies["okhttp3_logging"]
+    api rootProject.ext.dependencies["rxjava2"]
+    api rootProject.ext.dependencies["rxandroid"]
+
+    //圆形头像
+    api rootProject.ext.dependencies["circleimageview"]
+    //进度、加载控件
+    api rootProject.ext.dependencies["avLoading"]
+
+    api rootProject.ext.dependencies["kodein"]
+    api rootProject.ext.dependencies["kodeinAndroid"]
+    api rootProject.ext.dependencies["kodeinAndroidX"]
+
+    api rootProject.ext.dependencies["paging"]
+    api rootProject.ext.dependencies["pagingRx"]
+
+    api rootProject.ext.dependencies["room"]
+    api rootProject.ext.dependencies["roomKtx"]
+    api rootProject.ext.dependencies["roomRx"]
+//    api rootProject.ext.dependencies["exoplayer-core"]
+//    api rootProject.ext.dependencies["exoplayer-dash"]
+//    api rootProject.ext.dependencies["exoplayer-ui"]
+
+//    api 'net.zetetic:android-database-sqlcipher:3.5.2'
+//
+    api 'com.android.support.constraint:constraint-layout:1.1.3'
+    api 'com.google.android.material:material:1.1.0'
+    api "com.jakewharton.timber:timber:4.7.1"
+
+//    api Dependencies.lifecycleExtension
+//    api Dependencies.lifecycleJava8
+//    api Dependencies.lifecycleKtx
+//
+//    api Dependencies.viewModel
+//    api Dependencies.viewModelKtx
+//
+//    api Dependencies.navigation
+//    api Dependencies.navigationUi
+//
+//    api Dependencies.cameraCore
+//    api Dependencies.camera2
+
+    api 'top.zibin:Luban:1.1.8'
+
+}
+
