@@ -7,7 +7,7 @@
 
 
 // log标签
-#define  TAG    "native"
+#define  TAG    "native_app"
 // 定义info信息
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
 // 定义debug信息

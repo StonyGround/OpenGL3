@@ -10,8 +10,8 @@ const char *path;
 
 extern "C"
 JNIEXPORT int JNICALL
-Java_com_kiddo_myapplication_MainActivity_createFile(JNIEnv *env, jobject thiz,
-                                                     jstring filepath) {
+Java_com_kiddo_myapplication_Native_createFile(JNIEnv *env, jobject thiz,
+                                               jstring filepath) {
     path = (*env).GetStringUTFChars(filepath, 0);
 
     int result = RESULT_ERROR;
@@ -37,7 +37,7 @@ Java_com_kiddo_myapplication_MainActivity_createFile(JNIEnv *env, jobject thiz,
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_kiddo_myapplication_MainActivity_stringFromJNI(
+Java_com_kiddo_myapplication_Native_stringFromJNI(
         JNIEnv *env,
         jobject /* this */) {
     FILE *file = fopen(path, "r");
@@ -47,3 +47,10 @@ Java_com_kiddo_myapplication_MainActivity_stringFromJNI(
     return env->NewStringUTF(content);
 }
 
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_kiddo_myapplication_Native_test(JNIEnv *env, jobject thiz) {
+    int ip = 123;
+    LOGD("%s", "-------------");
+    LOGD("%#x", &ip);
+}

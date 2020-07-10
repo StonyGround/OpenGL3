@@ -83,6 +83,7 @@ dependencies {
 //    api rootProject.ext.dependencies["junit"]
 //    //MultiDex分包方法
     api rootProject.ext.dependencies["multidex"]
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 //    //Arouter路由
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
     api rootProject.ext.dependencies["arouter_api"]
