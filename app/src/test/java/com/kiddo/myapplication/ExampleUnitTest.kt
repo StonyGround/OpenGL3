@@ -13,6 +13,7 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-
+        val s: String? = null
+        print(s!!.length)
     }
 }

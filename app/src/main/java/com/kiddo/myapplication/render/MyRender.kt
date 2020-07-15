@@ -2,6 +2,7 @@ package com.kiddo.myapplication.render
 
 import android.opengl.GLES20
 import android.opengl.GLSurfaceView
+import android.opengl.Matrix
 import com.kiddo.myapplication.util.CommonUtils
 import timber.log.Timber
 import java.nio.ByteBuffer
@@ -11,6 +12,11 @@ import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 
 class MyRender : GLSurfaceView.Renderer {
+
+    private var mMatrixHandler: Int = 0
+    private var mProjectMatrix = FloatArray(16)
+    private var mViewMatrix = FloatArray(16)
+    private var mMVPMatrix = FloatArray(16)
 
     private var vertex: String
     private var fragment: String
@@ -46,6 +52,8 @@ class MyRender : GLSurfaceView.Renderer {
         )
         bb.order(ByteOrder.nativeOrder())
 
+
+
         vertexBuffer = bb.asFloatBuffer()
         vertexBuffer.put(triangleCoords)
         vertexBuffer.position(0)
@@ -62,6 +70,11 @@ class MyRender : GLSurfaceView.Renderer {
 
         GLES20.glUseProgram(mProgram)
         mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition")
+        mMatrixHandler = GLES20.glGetUniformLocation(mProgram, "vMatrix")
+
+        //指定vMatrix的值
+        GLES20.glUniformMatrix4fv(mMatrixHandler, 1, false, mMVPMatrix, 0);
+
         //启用三角形顶点的句柄
         GLES20.glEnableVertexAttribArray(mPositionHandle)
         //准备三角形的坐标数据
@@ -83,6 +96,15 @@ class MyRender : GLSurfaceView.Renderer {
     override fun onSurfaceChanged(gl: GL10?, width: Int, height: Int) {
         Timber.i("onSurfaceChanged")
         GLES20.glViewport(0, 0, width, height);
+
+        val ratio = width.toFloat() / height;
+
+        //设置透视投影
+        Matrix.frustumM(mProjectMatrix, 0, -ratio, ratio, -1f, 1f, 3f, 7f);
+        //设置相机位置
+        Matrix.setLookAtM(mViewMatrix, 0, 0f, 0f, 7.0f, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
+        //计算变换矩阵
+        Matrix.multiplyMM(mMVPMatrix, 0, mProjectMatrix, 0, mViewMatrix, 0);
     }
 
     override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
