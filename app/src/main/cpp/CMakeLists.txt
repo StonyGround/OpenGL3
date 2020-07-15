@@ -6,9 +6,10 @@
 cmake_minimum_required(VERSION 3.4.1)
 
 #OpenGL ES 3.0 配置
-#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-rtti -fno-exceptions -Wall")
-#add_definitions("-DDYNAMIC_ES3")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-rtti -fno-exceptions -Wall")
+
+add_definitions("-DDYNAMIC_ES3")
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -52,4 +53,6 @@ target_link_libraries( # Specifies the target library.
         android
         GLESv2
         GLESv3
+        EGL
+        m
         )

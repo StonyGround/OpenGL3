@@ -7,7 +7,7 @@ import com.kiddo.myapplication.Native
 
 class MySurfaceView(context: Context?, attrs: AttributeSet?) : GLSurfaceView(context, attrs) {
     init {
-        setEGLContextClientVersion(2)
+        setEGLContextClientVersion(3)
         val renderer = JniRender()
         setRenderer(renderer)
         renderMode = RENDERMODE_WHEN_DIRTY
