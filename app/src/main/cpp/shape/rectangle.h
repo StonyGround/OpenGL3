@@ -1,0 +1,8 @@
+//
+// Created by cl on 2020/7/16.
+//
+
+#ifndef MY_APPLICATION_RECTANGLE_H
+#define MY_APPLICATION_RECTANGLE_H
+
+#endif //MY_APPLICATION_RECTANGLE_H

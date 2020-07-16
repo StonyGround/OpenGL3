@@ -15,7 +15,7 @@ GLuint createTextureFromBMP(const char *bmpPath);
 
 GLuint createTexture2D(unsigned char *pixelData, int Width, int height, GLenum type);
 
-unsigned char *loadFileContent(const char *path, int &fileSize);
+char *loadFileContent(const char *path);
 
 char *readFile(const char *path);
 
