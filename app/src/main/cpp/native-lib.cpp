@@ -39,7 +39,7 @@ Java_com_kiddo_myapplication_Native_00024Companion_initAssetManager(JNIEnv *env,
 
 JNIEXPORT void JNICALL
 Java_com_kiddo_myapplication_Native_00024Companion_initOpenGL(JNIEnv *env, jobject thiz) {
-    shape = ShapeManager::create(S_TRIANGLE);
+    shape = ShapeManager::create(S_RECTANGLE);
     shape->initOpenGL();
 }
 
@@ -50,7 +50,7 @@ Java_com_kiddo_myapplication_Native_00024Companion_onViewportChanged(JNIEnv *env
 }
 
 JNIEXPORT void JNICALL
-Java_com_kiddo_myapplication_Native_00024Companion_renderOneFrame(JNIEnv *env, jobject thiz) {
+Java_com_kiddo_myapplication_Native_00024Companion_renderFrame(JNIEnv *env, jobject thiz) {
     shape->draw();
 }
 

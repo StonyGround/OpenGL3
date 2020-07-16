@@ -9,7 +9,7 @@ class JniRender :GLSurfaceView.Renderer{
 
 
     override fun onDrawFrame(gl: GL10?) {
-        Native.renderOneFrame()
+        Native.renderFrame()
     }
 
     override fun onSurfaceChanged(gl: GL10?, width: Int, height: Int) {

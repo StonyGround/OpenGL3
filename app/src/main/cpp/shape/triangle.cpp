@@ -3,10 +3,13 @@
 //
 #include "triangle.h"
 
-GLfloat vVertices[] = {0.0f, 0.5f, 0.0f,
-                  -0.5f, -0.5f, 0.0f,
-                  0.5f, -0.5f, 0.0f};
+//顶点
+GLfloat vVertices[] = {0.5f, 0.5f, 0.0f,//右上
+                       0.5f, -0.5f, 0.0f,//右下
+                       -0.5f, -0.5f, 0.0f//左下
+};
 
+//颜色
 GLfloat c[] = {1.0f, 0.0f, 1.0f, 1.0f};
 
 void Triangle::initOpenGL() {
@@ -56,6 +59,7 @@ void Triangle::draw() {
 
     glUseProgram(mProgram);
 
+    //矩阵转换
 //    mMatrixHandler = glGetUniformLocation(mProgram, "vMatrix");
     //指定vMatrix的值
 //    glUniformMatrix4fv(mMatrixHandler, 1, false, mMVPMatrix, 0);
@@ -75,6 +79,7 @@ void Triangle::draw() {
     glUniform4fv(mColorHandle, 1, color);
 //        glUniform4f(mColorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 
+    //顶点着色
 //    mColorHandle = glGetAttribLocation(mProgram, "aColor");
 //    glEnableVertexAttribArray(mColorHandle);
 //    glVertexAttribPointer(mColorHandle, 4, GL_FLOAT, GL_FALSE, 0, aColor);

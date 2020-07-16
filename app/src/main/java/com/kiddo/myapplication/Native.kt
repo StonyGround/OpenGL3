@@ -17,7 +17,7 @@ public class Native {
 
         external fun onViewportChanged(width: Int, height: Int)
 
-        external fun renderOneFrame()
+        external fun renderFrame()
 
     }
 }

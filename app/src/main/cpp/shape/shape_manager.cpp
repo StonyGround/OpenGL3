@@ -4,11 +4,17 @@
 
 #include "shape_manager.h"
 #include "triangle.h"
+#include "rectangle.h"
 
 Shape *ShapeManager::create(int type) {
     Shape *shape = nullptr;
-    if (type == S_TRIANGLE) {
-        shape = new Triangle();
+    switch (type) {
+        case S_TRIANGLE:
+            shape = new Triangle();
+            break;
+        case S_RECTANGLE:
+            shape = new Rectangle();
+            break;
     }
     return shape;
 }
