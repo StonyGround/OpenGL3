@@ -6,7 +6,7 @@
 
 AAssetManager *assetManager;
 
-Shape *shape;
+IOpenGL *shape;
 
 //加载assets资源
 char *loadFileContent(const char *path) {
@@ -39,7 +39,7 @@ Java_com_kiddo_myapplication_Native_00024Companion_initAssetManager(JNIEnv *env,
 
 JNIEXPORT void JNICALL
 Java_com_kiddo_myapplication_Native_00024Companion_initOpenGL(JNIEnv *env, jobject thiz) {
-    shape = ShapeManager::create(S_RECTANGLE);
+    shape = ShapeManager::create(S_TEXTURE_2D);
     shape->initOpenGL();
 }
 

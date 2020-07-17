@@ -5,12 +5,6 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-#OpenGL ES 3.0 配置
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-rtti -fno-exceptions -Wall")
-
-add_definitions("-DDYNAMIC_ES3")
-
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
@@ -27,8 +21,10 @@ add_library( # Sets the name of the library.
         utils.cpp
         shape/triangle.cpp
         shape/shape_manager.cpp
-        shape/shape.cpp
+        base_gl.cpp
         shape/rectangle.cpp
+        shape/color_full.cpp
+        texture/texture2d.cpp
         )
 
 # Searches for a specified prebuilt library and stores the path as a

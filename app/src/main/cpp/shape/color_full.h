@@ -1,17 +1,13 @@
 //
-// Created by cl on 2020/7/16.
-// 你好三角形
+// Created by cl on 2020/7/17.
 //
 #include "../base_gl.h"
 #include "../ggl.h"
 #include "../utils.h"
 
-
-#ifndef MY_APPLICATION_TRIANGLE_H
-#define MY_APPLICATION_TRIANGLE_H
-
-
-class Triangle : public IOpenGL {
+#ifndef MY_APPLICATION_COLOR_FULL_H
+#define MY_APPLICATION_COLOR_FULL_H
+class RectangleColorFull : public IOpenGL {
 private:
 
     GLuint mProgram;
@@ -28,7 +24,7 @@ private:
     GLuint VAO;
 
 public:
-    Triangle();
+    RectangleColorFull();
 
     void initOpenGL() override;
 
@@ -37,5 +33,4 @@ public:
     void draw() override;
 
 };
-
-#endif //MY_APPLICATION_TRIANGLE_H
+#endif //MY_APPLICATION_COLOR_FULL_H

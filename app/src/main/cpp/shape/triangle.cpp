@@ -3,16 +3,13 @@
 //
 #include "triangle.h"
 
-//顶点
-GLfloat vVertices[] = {0.5f, 0.5f, 0.0f,//右上
-                       0.5f, -0.5f, 0.0f,//右下
-                       -0.5f, -0.5f, 0.0f//左下
-};
-
-//颜色
-GLfloat c[] = {1.0f, 0.0f, 1.0f, 1.0f};
-
 void Triangle::initOpenGL() {
+    //顶点
+    GLfloat vVertices[] = {0.5f, 0.5f, 0.0f,//右上
+                           0.5f, -0.5f, 0.0f,//右下
+                           -0.5f, -0.5f, 0.0f//左下
+    };
+
     //创建着色器
     char *vertCode = loadFileContent("triangle.vert");
     char *fragCode = loadFileContent("triangle.frag");
@@ -53,7 +50,8 @@ void Triangle::initOpenGL() {
 
 
 void Triangle::draw() {
-    LOGD("draw");
+    //颜色
+    GLfloat color[] = {1.0f, 0.0f, 1.0f, 1.0f};
 
     glClear(GL_COLOR_BUFFER_BIT);
 
@@ -75,7 +73,6 @@ void Triangle::draw() {
     //获取片元着色器的vColor成员的句柄
     mColorHandle = glGetUniformLocation(mProgram, "vColor");
     //设置绘制三角形的颜色
-    color = c;
     glUniform4fv(mColorHandle, 1, color);
 //        glUniform4f(mColorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 

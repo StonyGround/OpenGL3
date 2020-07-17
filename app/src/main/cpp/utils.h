@@ -13,7 +13,7 @@ GLuint createProgram(GLuint vsShader, GLuint fsShader);
 
 GLuint createTextureFromBMP(const char *bmpPath);
 
-GLuint createTexture2D(unsigned char *pixelData, int Width, int height, GLenum type);
+GLuint createTexture2D( char *pixelData, int width, int height, GLenum type);
 
 char *loadFileContent(const char *path);
 

@@ -2,11 +2,11 @@
 // Created by cl on 2020/7/15.
 //
 
-#ifndef MY_APPLICATION_SHAPE_H
-#define MY_APPLICATION_SHAPE_H
+#ifndef MY_APPLICATION_BASE_GL_H
+#define MY_APPLICATION_BASE_GL_H
 
 
-class Shape {
+class IOpenGL {
 public:
     virtual void initOpenGL();
 
@@ -17,4 +17,4 @@ public:
 };
 
 
-#endif //MY_APPLICATION_SHAPE_H
+#endif //MY_APPLICATION_BASE_GL_H

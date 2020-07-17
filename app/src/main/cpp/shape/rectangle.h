@@ -1,22 +1,21 @@
 //
 // Created by cl on 2020/7/16.
+// 矩形
 //
-#include "shape.h"
+#include "../base_gl.h"
 #include "../ggl.h"
 #include "../utils.h"
 
 #ifndef MY_APPLICATION_RECTANGLE_H
 #define MY_APPLICATION_RECTANGLE_H
 
-class Rectangle : public Shape {
+class Rectangle : public IOpenGL {
 private:
 
     GLuint mProgram;
     GLint mPositionHandle;
 
     GLint mColorHandle;
-
-    GLfloat *color;
 
     GLuint VBO;
 

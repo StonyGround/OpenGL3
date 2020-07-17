@@ -63,21 +63,11 @@ void Rectangle::initOpenGL() {
 
 
 void Rectangle::draw() {
-    LOGD("draw");
 
     glClear(GL_COLOR_BUFFER_BIT);
 
     glUseProgram(mProgram);
 
-    //矩阵转换
-//    mMatrixHandler = glGetUniformLocation(mProgram, "vMatrix");
-    //指定vMatrix的值
-//    glUniformMatrix4fv(mMatrixHandler, 1, false, mMVPMatrix, 0);
-
-    //启用三角形顶点的句柄
-//    glEnableVertexAttribArray(mPositionHandle);
-//    //准备三角形的坐标数据
-//    glVertexAttribPointer(mPositionHandle, 3, GL_FLOAT, GL_FALSE, 0, vVertices);
 
     glBindVertexArray(VAO);
 
@@ -87,16 +77,9 @@ void Rectangle::draw() {
 //    glUniform4fv(mColorHandle, 1, color);
     glUniform4f(mColorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 
-    //顶点着色
-//    mColorHandle = glGetAttribLocation(mProgram, "aColor");
-//    glEnableVertexAttribArray(mColorHandle);
-//    glVertexAttribPointer(mColorHandle, 4, GL_FLOAT, GL_FALSE, 0, aColor);
-
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
     glBindVertexArray(0);
-    //禁止顶点数组的句柄
-//    glDisableVertexAttribArray(mPositionHandle);
 }
 
 void Rectangle::resize() {
