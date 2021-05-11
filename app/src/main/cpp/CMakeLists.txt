@@ -18,13 +18,13 @@ add_library( # Sets the name of the library.
 
         # Provides a relative path to your source file(s).
         native-lib.cpp
-        utils.cpp
-        shape/triangle.cpp
-        shape/shape_manager.cpp
-        base_gl.cpp
-        shape/rectangle.cpp
-        shape/color_full.cpp
-        texture/texture2d.cpp
+        opengl/utils.cpp
+        opengl/shape/triangle.cpp
+        opengl/shape/shape_manager.cpp
+        opengl/base_gl.cpp
+        opengl/shape/rectangle.cpp
+        opengl/shape/color_full.cpp
+        opengl/texture/texture2d.cpp
         )
 
 # Searches for a specified prebuilt library and stores the path as a

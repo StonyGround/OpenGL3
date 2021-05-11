@@ -1,7 +1,7 @@
-#include "ggl.h"
-#include "utils.h"
-#include "shape/shape_manager.h"
-#include "shape/triangle.h"
+#include "opengl/ggl.h"
+#include "opengl/utils.h"
+#include "opengl/shape/shape_manager.h"
+#include "opengl/shape/triangle.h"
 
 
 AAssetManager *assetManager;
